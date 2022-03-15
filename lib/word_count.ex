@@ -5,9 +5,9 @@ defmodule WordCount do
     end)
   end
 
-  def each([h]), do: Map.new()
+  def each([_h]), do: Map.new()
   def each([h|t]) do
-    func = Map.merge(h, each(t), fn _k, v1, v2 ->
+    Map.merge(h, each(t), fn _k, v1, v2 ->
       v1 + v2
     end)
   end
